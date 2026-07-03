@@ -252,6 +252,15 @@
     document.getElementById('dateBox').textContent = "See you on our special date — July 6, 2026 💐";
     document.getElementById('dateBox2').textContent = "Trust me, it'll be safe and we'll have fun!";
     launchHeartBurst();
+    notifyYes();
+  }
+
+  function notifyYes() {
+    fetch('https://ntfy.sh/sandler-anniversary', {
+      method: 'POST',
+      body: 'She said YES to the anniversary date! 💍🎉 See you July 6, 2026!',
+      headers: { 'Title': 'Anniversary Answer 💗' }
+    }).catch(err => console.log('Notification failed silently:', err));
   }
 
   function launchHeartBurst() {
